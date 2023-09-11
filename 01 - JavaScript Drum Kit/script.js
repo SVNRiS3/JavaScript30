@@ -1,8 +1,10 @@
 const keys = document.querySelectorAll(".key");
 
 keys.forEach((key) => {
-    addEventListener("transitionend", () => {
-        key.classList.remove('playing');
+    addEventListener("transitionend", (e) => {
+        console.log(e)
+        if (e.propertyName === 'transform')
+            key.classList.remove('playing');
     })
 });
 
