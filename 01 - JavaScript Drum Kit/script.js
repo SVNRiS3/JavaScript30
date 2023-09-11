@@ -9,5 +9,6 @@ function handleKeyEvent(key, audio) {
 document.addEventListener("keydown", (e) => {
     const key = document.querySelector(`.key[data-key="${e.code.charCodeAt(3)}"]`)
     const audio = document.querySelector(`audio[data-key="${e.code.charCodeAt(3)}"]`)
-    handleKeyEvent(key, audio);
+    if (key && audio)
+        handleKeyEvent(key, audio);
 });
