@@ -1,6 +1,4 @@
-function handleKeyEvent(set) {
-    const key = set[0];
-    const audio = set[1];
+function handleKeyEvent(key, audio) {
     key.classList.toggle('playing');
     audio.play();
     setTimeout(() => {
@@ -9,6 +7,7 @@ function handleKeyEvent(set) {
 }
 
 document.addEventListener("keydown", (e) => {
-    const set = document.querySelectorAll(`[data-key="${e.code.charCodeAt(3)}"]`)
-    handleKeyEvent(set);
+    const key = document.querySelector(`.key[data-key="${e.code.charCodeAt(3)}"]`)
+    const audio = document.querySelector(`audio[data-key="${e.code.charCodeAt(3)}"]`)
+    handleKeyEvent(key, audio);
 });
