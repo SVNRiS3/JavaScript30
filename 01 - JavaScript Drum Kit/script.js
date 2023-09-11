@@ -1,9 +1,16 @@
+const keys = document.querySelectorAll(".key");
+
+keys.forEach((key) => {
+    addEventListener("transitionend", () => {
+        key.classList.remove('playing');
+    })
+});
+
 function handleKeyEvent(key, audio) {
-    key.classList.toggle('playing');
+    key.classList.add('playing');
+    audio.currentTime = 0;
     audio.play();
-    setTimeout(() => {
-        key.classList.toggle('playing');
-    }, 100)
+
 }
 
 document.addEventListener("keydown", (e) => {
