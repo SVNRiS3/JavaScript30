@@ -74,6 +74,12 @@
     // 7. sort Exercise
     // Sort the people alphabetically by last name
     const sortedPeople = people.toSorted();
+    // Sort the people alphabetically by first name
+    const sortedPeople2 = people.toSorted((a, b) => {
+      let [aLast, aFirst] = a.split(", ");
+      let [bLast, bFirst] = b.split(", ");
+      return aFirst > bFirst ? 1 : -1;
+    });
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
